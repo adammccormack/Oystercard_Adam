@@ -47,6 +47,16 @@ describe OysterCard do
       expect{ subject.touch_in }.to raise_error "Insufficient balance to touch in"
     end
 
+  describe '#touch_out' do
+
+    it 'deducts fare on touch out' do
+      subject.top_up(10)
+      subject.touch_in
+      expect { subject.touch_out }.to change{ subject.balance }.by(-OysterCard::MINIMUM_BALANCE)
+
+    end
+  end
+
   end
   end
   end
