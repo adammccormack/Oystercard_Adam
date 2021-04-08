@@ -99,5 +99,6 @@ describe OysterCard do
       expect(card.entry_station).to eq(nil)
     end
     
+    
   end
 end
