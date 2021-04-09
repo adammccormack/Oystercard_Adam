@@ -1,7 +1,9 @@
+require_relative 'journey'
+
 class OysterCard
   MAXIMUM_BALANCE = 90
   MINIMUM_BALANCE = 1
-  
+
   attr_reader :balance
   attr_accessor :entry_station, :exit_station, :journeys
 
@@ -35,7 +37,7 @@ class OysterCard
   def log_journey
     @journeys << { entry_station: entry_station , exit_station: exit_station }
   end
-  
+
   private
 
   def max_limit(amount)
@@ -51,4 +53,3 @@ class OysterCard
   end
 
 end
-
