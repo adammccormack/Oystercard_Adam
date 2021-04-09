@@ -1,4 +1,5 @@
 require 'oystercard'
+require 'journey'
 
 describe OysterCard do
   subject(:card) { described_class.new }
@@ -31,31 +32,12 @@ describe OysterCard do
     end
   end
 
-  describe '#journeys' do
-
-    it 'initializes with empty journeys' do
-      expect(card.journeys).to be_empty
-    end
-
-    it 'stores journeys' do
-      card.top_up(10)
-      card.touch_in(entry_station)
-      card.touch_out(exit_station)
-      expect(card.journeys).to include journey
-    end
-
-  end
-
   describe '#touch_in' do
 
     it 'stores entry station' do
       card.top_up(5)
       card.touch_in(entry_station)
       expect(card.entry_station).to eq(entry_station)
-    end
-
-    it 'is initially not in a journey' do
-      expect(card).not_to be_in_journey
     end
 
     it "can touch in" do

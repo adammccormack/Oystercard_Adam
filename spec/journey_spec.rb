@@ -7,6 +7,14 @@ let(:exit_station) {double :station}
   let(:journey_list) {{ entry_station: entry_station , exit_station: exit_station }}
 subject(:journey) { described_class.new }
 
+  it 'is initially not in a journey' do
+    expect(journey).not_to be_in_journey
+  end
+
+  it 'initializes with empty journeys' do
+    expect(journey.journey_list).to be_empty
+  end
+
   it "logs start of journey" do
     journey.start_journey(entry_station)
     expect(journey.entry_station).to eq(entry_station)

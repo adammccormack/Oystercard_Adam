@@ -7,6 +7,7 @@ attr_reader :entry_station, :exit_station, :journey_list
   def initialize
     @record_journey
     @journey_list = []
+    @entry_station = nil
   end
 
   def start_journey(station)
