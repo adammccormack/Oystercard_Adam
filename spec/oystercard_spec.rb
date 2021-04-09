@@ -32,12 +32,17 @@ describe OysterCard do
     end
   end
 
+
   describe '#touch_in' do
 
     it 'stores entry station' do
       card.top_up(5)
       card.touch_in(entry_station)
       expect(card.entry_station).to eq(entry_station)
+    end
+
+    it 'is initially not in a journey' do
+      expect(card).not_to be_in_journey
     end
 
     it "can touch in" do
